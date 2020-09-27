@@ -5,19 +5,22 @@ import lombok.var;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Group {
-    List<Object> objects = new ArrayList<>();
+public class Group implements Component {
+    List<Component> components = new ArrayList<>();
 
-    public void add(Object shape) {
-        objects.add(shape);
+    public void add(Component component) {
+        components.add(component);
     }
 
+    @Override
     public void render() {
-        for (var object : objects) {
-            if (object instanceof Shape)
-                ((Shape)object).render();
-            else
-                ((Group)object).render();
-        }
+        for (var component : components)
+            component.render();
+    }
+
+    @Override
+    public void move() {
+        for (var component : components)
+            component.move();
     }
 }
