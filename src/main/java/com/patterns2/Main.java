@@ -1,15 +1,12 @@
 package com.patterns2;
 
-import com.patterns2.facade.NotificationService;
-import com.patterns2.flyweight.PointIconFactory;
-import com.patterns2.flyweight.PointService;
+import com.patterns2.bridge.AdvancedRemoteControl;
+import com.patterns2.bridge.SamsungTV;
 import lombok.var;
 
 public class Main {
     public static void main(String[] args) {
-        var service = new PointService(new PointIconFactory());
-        for (var point : service.getPoints()) {
-            point.draw();
-        }
+        var remoteControl = new AdvancedRemoteControl(new SamsungTV());
+        remoteControl.turnOn();
     }
 }

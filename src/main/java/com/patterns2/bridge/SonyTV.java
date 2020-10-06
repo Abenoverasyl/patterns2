@@ -1,13 +1,18 @@
 package com.patterns2.bridge;
 
-public class SonyRemoteControl extends RemoteControl {
+public class SonyTV implements Device {
     @Override
     public void turnOn() {
         System.out.println("Sony: turnOn");
     }
 
     @Override
-    public void turnOf() {
+    public void turnOff() {
         System.out.println("Sony: turnOff");
+    }
+
+    @Override
+    public void setChannel(int number) {
+        System.out.println("Sony: setChannel");
     }
 }
