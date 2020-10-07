@@ -1,7 +1,7 @@
 package com.patterns2;
 
-import com.patterns2.proxy.Ebook;
 import com.patterns2.proxy.Library;
+import com.patterns2.proxy.LoggingEbookProxy;
 import lombok.var;
 
 public class Main {
@@ -9,9 +9,11 @@ public class Main {
         var library = new Library();
         String[] fileNames = {"a", "b", "c"};
         for (var fileName : fileNames) {
-            library.add(new Ebook(fileName));
+            library.add(new LoggingEbookProxy(fileName));
         }
 
         library.openEbook("a");
+        library.openEbook("b");
+        library.openEbook("c");
     }
 }
